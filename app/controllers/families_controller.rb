@@ -1,40 +1,17 @@
 class FamiliesController < ApplicationController
-  # GET /families
-  # GET /families.xml
-  def index
-    @families = Family.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @families }
-    end
-  end
-
-  # GET /families/1
-  # GET /families/1.xml
-  def show
-    @family = Family.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @family }
-    end
-  end
-
+  
+  before_filter :require_no_user, :only => [:new, :create]
+  before_filter :require_user, :only => [:show, :edit, :update]
+  
   # GET /families/new
   # GET /families/new.xml
   def new
     @family = Family.new
 
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @family }
-    end
-  end
-
-  # GET /families/1/edit
-  def edit
-    @family = Family.find(params[:id])
+    # respond_to do |format|
+    #   format.html # new.html.erb
+    #   format.xml  { render :xml => @family }
+    # end
   end
 
   # POST /families
@@ -42,42 +19,33 @@ class FamiliesController < ApplicationController
   def create
     @family = Family.new(params[:family])
 
-    respond_to do |format|
       if @family.save
-        format.html { redirect_to(@family, :notice => 'Family was successfully created.') }
-        format.xml  { render :xml => @family, :status => :created, :location => @family }
+        flash[:notice] = "Account registered!"
+        redirect_back_or_default account_url
       else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @family.errors, :status => :unprocessable_entity }
+        render :action => :new
       end
-    end
   end
 
   # PUT /families/1
   # PUT /families/1.xml
   def update
-    @family = Family.find(params[:id])
-
-    respond_to do |format|
-      if @family.update_attributes(params[:family])
-        format.html { redirect_to(@family, :notice => 'Family was successfully updated.') }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @family.errors, :status => :unprocessable_entity }
-      end
+    
+    @family = @current_user # makes our views "cleaner" and more consistent
+    if @family.update_attributes(params[:family])
+      flash[:notice] = "Account updated!"
+      redirect_to account_url
+    else
+      render :action => :edit
     end
   end
 
-  # DELETE /families/1
-  # DELETE /families/1.xml
-  def destroy
-    @family = Family.find(params[:id])
-    @family.destroy
-
-    respond_to do |format|
-      format.html { redirect_to(families_url) }
-      format.xml  { head :ok }
-    end
+  def show
+    @family = @current_user
   end
+
+  def edit
+    @family = @current_user
+  end
+
 end

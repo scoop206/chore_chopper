@@ -1,10 +1,11 @@
 ActionController::Routing::Routes.draw do |map|
+  
   map.resources :chores
-
   map.resources :family_members
-
   map.resources :families
-
+  
+  map.resource :account, :controller => "families"
+  
   # The priority is based upon order of creation: first created -> highest priority.
 
   # Sample of regular route:

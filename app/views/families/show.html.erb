@@ -1,31 +1,6 @@
 <p>
-  <b>Name:</b>
-  <%=h @family.name %>
-</p>
-
-<p>
   <b>Login:</b>
   <%=h @family.login %>
-</p>
-
-<p>
-  <b>Email:</b>
-  <%=h @family.email %>
-</p>
-
-<p>
-  <b>Crypted password:</b>
-  <%=h @family.crypted_password %>
-</p>
-
-<p>
-  <b>Password salt:</b>
-  <%=h @family.password_salt %>
-</p>
-
-<p>
-  <b>Persistence token:</b>
-  <%=h @family.persistence_token %>
 </p>
 
 <p>
@@ -34,18 +9,8 @@
 </p>
 
 <p>
-  <b>Failed login count:</b>
-  <%=h @family.failed_login_count %>
-</p>
-
-<p>
   <b>Last request at:</b>
   <%=h @family.last_request_at %>
-</p>
-
-<p>
-  <b>Current login at:</b>
-  <%=h @family.current_login_at %>
 </p>
 
 <p>
@@ -54,8 +19,8 @@
 </p>
 
 <p>
-  <b>Current login ip:</b>
-  <%=h @family.current_login_ip %>
+  <b>Current login at:</b>
+  <%=h @family.current_login_at %>
 </p>
 
 <p>
@@ -63,6 +28,10 @@
   <%=h @family.last_login_ip %>
 </p>
 
+<p>
+  <b>Current login ip:</b>
+  <%=h @family.current_login_ip %>
+</p>
 
-<%= link_to 'Edit', edit_family_path(@family) %> |
-<%= link_to 'Back', families_path %>
+
+<%= link_to 'Edit', edit_account_path %>
