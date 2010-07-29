@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  chore_id: 1
+  family_member_id: 1
+  datetime: 2010-07-28 10:49:54
+
+two:
+  chore_id: 1
+  family_member_id: 1
+  datetime: 2010-07-28 10:49:54
