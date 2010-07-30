@@ -1,4 +1,7 @@
 class ChoresController < ApplicationController
+  
+  before_filter :require_family  
+  
   # GET /chores
   # GET /chores.xml
   def index

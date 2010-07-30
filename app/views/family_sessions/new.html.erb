@@ -1,8 +1,8 @@
 <h1>Login</h1>
 
-<% form_for @user_session, :url => user_session_path do |f| %>
+<% form_for @family_session, :url => family_session_path do |f| %>
   <%= f.error_messages %>
-  <%= f.label :login %><br />
+  <%= f.label :login, "Login (Family username)" %><br />
   <%= f.text_field :login %><br />
   <br />
   <%= f.label :password %><br />
@@ -12,3 +12,5 @@
   <br />
   <%= f.submit "Login" %>
 <% end %>
+<br />
+Need to <%= link_to "Register", new_family_url -%> first?

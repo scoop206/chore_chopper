@@ -3,8 +3,11 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :chores
   map.resources :family_members
   map.resources :families
-  
   map.resource :account, :controller => "families"
+
+  
+  map.resource :family_session
+  map.root :controller => "family_sessions", :action => "new" # optional, this just sets the root route
   
   # The priority is based upon order of creation: first created -> highest priority.
 

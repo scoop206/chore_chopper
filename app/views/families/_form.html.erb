@@ -1,8 +1,18 @@
-<%= form.label :login %><br />
+<%= form.label :login, "Login (Family username)" %><br />
 <%= form.text_field :login %><br />
+<br />
+<%= form.label :name, "Family Name (e.g. The Smiths)" %><br />
+<%= form.text_field :name %><br />
 <br />
 <%= form.label :password, form.object.new_record? ? nil : "Change password" %><br />
 <%= form.password_field :password %><br />
 <br />
 <%= form.label :password_confirmation %><br />
 <%= form.password_field :password_confirmation %><br />
+<br />
+<%= form.label :email %><br />
+<%= form.text_field :email %><br />
+<br />
+<%= label :form, :email_confirmation %><br />
+<%= text_field :form, :email_confirmation %><br />
+<br />

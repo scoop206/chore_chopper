@@ -1,7 +1,7 @@
 class FamiliesController < ApplicationController
   
-  before_filter :require_no_user, :only => [:new, :create]
-  before_filter :require_user, :only => [:show, :edit, :update]
+  before_filter :require_no_family, :only => [:new, :create]
+  before_filter :require_family, :only => [:show, :edit, :update]
   
   # GET /families/new
   # GET /families/new.xml
@@ -31,7 +31,7 @@ class FamiliesController < ApplicationController
   # PUT /families/1.xml
   def update
     
-    @family = @current_user # makes our views "cleaner" and more consistent
+    @family = @current_family # makes our views "cleaner" and more consistent
     if @family.update_attributes(params[:family])
       flash[:notice] = "Account updated!"
       redirect_to account_url
@@ -41,11 +41,11 @@ class FamiliesController < ApplicationController
   end
 
   def show
-    @family = @current_user
+    @family = @current_family
   end
 
   def edit
-    @family = @current_user
+    @family = @current_family
   end
 
 end
