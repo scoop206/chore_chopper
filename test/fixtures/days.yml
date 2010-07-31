@@ -1,9 +1,29 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
-one:
-  name: MyString
+sunday:
+  name: Sunday
+  day_of_week: 0
+
+monday:
+  name: Momday
   day_of_week: 1
 
-two:
-  name: MyString
-  day_of_week: 1
+tuesday:
+  name: Tuesday
+  day_of_week: 2
+  
+wednesday:
+  name: Wednesday
+  day_of_week: 3
+  
+thursday:
+  name: Thursday
+  day_of_week: 4
+  
+friday:
+  name: Friday
+  day_of_week: 5
+  
+saturday:
+  name: Saturday
+  day_of_week: 6

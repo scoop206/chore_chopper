@@ -3,6 +3,7 @@ class CreateChoresFamilyMembersJoinTable < ActiveRecord::Migration
     create_table :chores_family_members do |t|
       t.integer :chore_id
       t.integer :family_member_id
+      t.integer :week
     end
     
     add_index :chores_family_members, :chore_id

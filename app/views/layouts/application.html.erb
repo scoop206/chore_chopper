@@ -4,14 +4,57 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
-  <title>Chores: <%= controller.action_name %></title>
-  <%= stylesheet_link_tag 'scaffold' %>
-</head>
+  <title>Chore Chopper</title>
+  <%= stylesheet_link_tag 'chore_chopper' %>
+  </head>
 <body>
-
-<p style="color: green"><%= notice %></p>
-
-<%= yield %>
-
+<div id="header">
+  	<h2>Chore Chopper</h2>
+  	<%= image_tag 'axe.jpeg' %>
+</div> 
+<div class="colmask leftmenu"> 
+    <div class="colright"> 
+        <div class="col1wrap"> 
+            <div class="col1"> 
+                <!-- Column 1 start --> 
+                <div id="content">
+					
+					<% if true == false %> <%# IN LIEU OF A COMMENT OUT BOTH ERB AND HTML AT THE SAME TIME %>
+  					<% unless flash[:notice].blank? %>
+  					<p class="flash_notice"><%= flash[:notice] %></p>
+  					<% end %>
+					
+  					<% unless flash[:warning].blank? %>
+  					<p class="flash_warning"><%= flash[:warning] %></p>
+  					<% end %>
+					<% end %>
+				
+				<% # LOGOUT %>
+				<% if @current_family %>
+				<div id="user_info">
+				  <%= link_to "Logout", {:controller=> :family_sessions, :action => :destroy }, :method => :delete %></p>
+				</div>
+				<% end %>
+				<h2>Weekly chores for <%=h @family.name %></h2>
+				<p><%= @week_start.strftime('%A %B %d %Y') %> - <%= @week_end.strftime('%A %B %d %Y') %></p>
+				<%= yield %>
+			</div><!-- end content -->
+				<!-- Column 1 end --> 
+            </div> 
+        </div> 
+        
+        <!-- FOR NOW WE'LL HAVE NO LEFT COLUMN -->
+        
+        <!--
+        <div class="col2"> 
+          <ul id="links">
+    				<li><a href="#">foo_link</a></li>
+    			</ul>
+				</div>
+				-->
+		</div> 
+</div> 
+<div id="footer"> 
+</div>
 </body>
 </html>

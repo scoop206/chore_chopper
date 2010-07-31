@@ -1,6 +1,6 @@
 class Chore < ActiveRecord::Base
-  has_and_belongs_to_many :families
+  belongs_to :family
   has_and_belongs_to_many :family_members
-  has_many :chores_completed
+  has_many :chores_completed, :dependent => :destroy
   validates_presence_of :name
 end

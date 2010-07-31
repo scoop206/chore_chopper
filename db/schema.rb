@@ -9,10 +9,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100728165558) do
+ActiveRecord::Schema.define(:version => 20100730214223) do
 
   create_table "chores", :force => true do |t|
     t.string   "name"
+    t.integer  "family_id"
+    t.boolean  "no_day_tracking", :default => false
+    t.boolean  "active",          :default => true
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -20,7 +23,7 @@ ActiveRecord::Schema.define(:version => 20100728165558) do
   create_table "chores_completed", :force => true do |t|
     t.integer  "chore_id"
     t.integer  "family_member_id"
-    t.datetime "datetime"
+    t.integer  "week"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -28,14 +31,17 @@ ActiveRecord::Schema.define(:version => 20100728165558) do
   create_table "chores_families", :id => false, :force => true do |t|
     t.integer "chore_id"
     t.integer "family_id"
+    t.integer "week"
   end
 
   add_index "chores_families", ["chore_id"], :name => "index_chores_families_on_chore_id"
   add_index "chores_families", ["family_id"], :name => "index_chores_families_on_family_id"
+  add_index "chores_families", ["week"], :name => "index_chores_families_on_week"
 
   create_table "chores_family_members", :force => true do |t|
     t.integer "chore_id"
     t.integer "family_member_id"
+    t.integer "week"
   end
 
   add_index "chores_family_members", ["chore_id"], :name => "index_chores_family_members_on_chore_id"
@@ -44,6 +50,7 @@ ActiveRecord::Schema.define(:version => 20100728165558) do
   create_table "chores_family_members_days", :id => false, :force => true do |t|
     t.integer "chore_family_member_id"
     t.integer "day_id"
+    t.integer "week"
   end
 
   create_table "days", :force => true do |t|
@@ -87,6 +94,7 @@ ActiveRecord::Schema.define(:version => 20100728165558) do
     t.datetime "last_login_at"
     t.string   "current_login_ip"
     t.string   "last_login_ip"
+    t.boolean  "active",             :default => true
     t.datetime "created_at"
     t.datetime "updated_at"
   end
