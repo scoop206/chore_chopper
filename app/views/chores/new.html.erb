@@ -1,15 +1,18 @@
-<h1>New chore</h1>
+<h2>New Chore</h2>
 
-<% form_for(@chore) do |f| %>
+<% form_for(@chore, :url => family_chores_url(@current_family)) do |f| %>
   <%= f.error_messages %>
-
   <p>
     <%= f.label :name %><br />
     <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.check_box :no_day_tracking %> 
+    <%= f.label :no_day_tracking %>
   </p>
   <p>
     <%= f.submit 'Create' %>
   </p>
 <% end %>
 
-<%= link_to 'Back', chores_path %>
+<%= link_to 'Back', family_chores_path(@current_family) %>

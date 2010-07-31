@@ -1,6 +1,120 @@
+<h2 class="home_index_title">The Board
 <% if @admin %>
-  <%= link_to "New Chore", new_family_chore_url(@family) %>
+  <span>- Admin View</span>
+<% end %></h2>
+<p><%= @week_start.strftime('%A %B %d %Y') %> - <%= @week_end.strftime('%A %B %d %Y') %>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+<span class="manage_links">
+<% if @admin %>
+  <%= link_to "Manage Chores", family_chores_url(@current_family) %>
+  &nbsp;
+  <%= link_to "Manage Family Members", family_family_members_url(@current_family) %>
+  &nbsp;
+  <a href="#" id="save">Save Changes</a>
 <% end %>
+</span>
+</p>
+
+
+<%# THE BOARD %>
+
 <% if @admin %>
-  <%= link_to "New Family Member", new_family_family_member_url(@family) %>
+<%= form_tag :action => params[:action] %>
+<% end %>
+
+<table id="board">
+
+<!-- CHORES ACROSS THE TOP -->
+<tr>
+  <th>&nbsp;</th>
+  <% @chores.each do |ch| %>
+  <th><%=h ch.name %></th>
+  <% end %>
+</tr>
+
+<% @family_members.each do |fm| %>
+  <tr>
+  <td class="fm_name"><%=h fm.name %></td>
+  <% @chores.each do |ch| %>
+    <td>
+      <% if @admin %>        <%# ADMIN VIEW %>
+          
+          Assigned: <%= check_box_tag "chore_assigned[''chore#{ch.id}_fm#{fm.id}']", 1, false, :class => "assigned" %>
+          
+          <%# top row days %>
+          <div class="weekday_buttons">
+            <% for index in 0..3 %>
+            <% day = @days[index] %>
+            <%= check_box_tag "chore_day_assignment['chore#{ch.id}_fm#{fm.id}_day#{day.day_of_week}']" %>
+            <%= label_tag "chore_day_assignment['chore#{ch.id}_fm#{fm.id}_day#{day.day_of_week}']", day.abbreviation %>
+            <% end %>
+          </div>
+          <%# bottom row days and select all deselect all button %>
+          <div class="weekday_buttons">
+            <% for index in 4..6 %>
+            <% day = @days[index] %>
+            <%= check_box_tag "chore_day_assignment['chore#{ch.id}_fm#{fm.id}_day#{day.day_of_week}']" %>
+            <%= label_tag "chore_day_assignment['chore#{ch.id}_fm#{fm.id}_day#{day.day_of_week}']", day.abbreviation %>
+            <% end %>
+            <button class="selector">All</button>
+          </div>
+        <% end %>
+      <% else %>        <%#  NON-ADMIN VIEW %>
+      
+      <% end %>
+    </td>
+  <% end %>
+  </tr>
+<% end %>
+</table>
+
+<%  if @admin %>
+<%= submit_tag "Save Changes" %>
+</form>
+<% end %>
+
+<% content_for :content_for_head do %>
+<% javascript_tag do %>
+
+$(document).ready(function() {
+  
+  <% if @admin %>
+  // setup checkboxes to be jquery radio buttons
+  $('.weekday_buttons').buttonset();
+  
+  // setup save and goto normal view link
+  $('#save').click(function() {
+    
+    return false;
+  });
+
+  // click event for the selector buttons which select or deselect a set of days
+  $('.selector').button().click(function() {
+    
+    var label_node = $(this).children('span');
+    // if current label is 'All', select all other checkboxes, else deselect all other checkboxes
+    if (label_node.html() == 'All') {
+      check_val = 'checked';
+      update_day_checkboxes($(this));
+      label_node.html('None');
+    } else {
+      check_val = '';
+      update_day_checkboxes($(this));
+      label_node.html('All'); 
+    }
+    return false;
+    <% end %>
+    
+  });
+
+});
+
+<% if @admin %>
+function update_day_checkboxes(select_button) {
+  select_button.parent().parent().children('div').children('input').attr('checked',check_val).button('refresh');
+}
+<% end %>
+
+<% end %>
 <% end %>

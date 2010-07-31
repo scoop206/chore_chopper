@@ -7,20 +7,29 @@ class HomeController < ApplicationController
   
   def index
     
+    debugger
+    
+    # update chore assignments if the admin form was submitted
+    unless params[:chore_day_assignment].nil?
+      params[:chore_day_assignment].each_key do |key|
+        
+      end
+    end
+    
     @admin = true
     # @admin = false
     # @admin = true if params[:admin] == "1" or params[:setup] == "1"
-    @family = current_family
     @date = date || DateTime.now
     @week_start = week_start
     @week_end = week_end
     
     
-    @week_number = @family.week(@date)
-    @family_members = @family.family_members.find(  :all, 
+    @week_number = @current_family.week(@date)
+    @family_members = @current_family.family_members.find(  :all, 
                                                     :conditions => ["active = ?", true])
-    @chores = @family.chores.find(  :all,
+    @chores = @current_family.chores.find(  :all,
                                     :conditions => ["active = ?", true])
+    @days = Day.all                                
   
   end
   

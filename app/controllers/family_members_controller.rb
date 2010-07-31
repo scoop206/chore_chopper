@@ -1,4 +1,7 @@
 class FamilyMembersController < ApplicationController
+  
+  before_filter :require_family
+  
   # GET /family_members
   # GET /family_members.xml
   def index
@@ -41,10 +44,11 @@ class FamilyMembersController < ApplicationController
   # POST /family_members.xml
   def create
     @family_member = FamilyMember.new(params[:family_member])
+    @family_member.family = @current_family
 
     respond_to do |format|
       if @family_member.save
-        format.html { redirect_to(@family_member, :notice => 'FamilyMember was successfully created.') }
+        format.html { redirect_to(family_family_member_url(@current_family, @family_member), :notice => 'A Family Member was successfully created.') }
         format.xml  { render :xml => @family_member, :status => :created, :location => @family_member }
       else
         format.html { render :action => "new" }
@@ -60,7 +64,7 @@ class FamilyMembersController < ApplicationController
 
     respond_to do |format|
       if @family_member.update_attributes(params[:family_member])
-        format.html { redirect_to(@family_member, :notice => 'FamilyMember was successfully updated.') }
+        format.html { redirect_to(family_family_member_url(@current_family, @family_member), :notice => 'A Family Member was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -76,7 +80,7 @@ class FamilyMembersController < ApplicationController
     @family_member.destroy
 
     respond_to do |format|
-      format.html { redirect_to(family_members_url) }
+      format.html { redirect_to(family_family_members_url(@current_family)) }
       format.xml  { head :ok }
     end
   end

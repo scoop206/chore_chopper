@@ -5,8 +5,12 @@
 <head>
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
   <title>Chore Chopper</title>
+  <%= javascript_include_tag 'jquery-1.4.2.min' %>
+  <%= javascript_include_tag 'jquery-ui-1.8.2.custom.min' %>
+  <%= stylesheet_link_tag 'dark-hive/jquery-ui-1.8.2.custom' %>
   <%= stylesheet_link_tag 'chore_chopper' %>
-  </head>
+  <%= yield :content_for_head %>
+</head>
 <body>
 <div id="header">
   	<h2>Chore Chopper</h2>
@@ -32,12 +36,13 @@
 				<% # LOGOUT %>
 				<% if @current_family %>
 				<div id="user_info">
+				  <p>Welcome: <%=h @current_family.name %><br />
 				  <%= link_to "Logout", {:controller=> :family_sessions, :action => :destroy }, :method => :delete %></p>
 				</div>
 				<% end %>
-				<h2>Weekly chores for <%=h @family.name %></h2>
-				<p><%= @week_start.strftime('%A %B %d %Y') %> - <%= @week_end.strftime('%A %B %d %Y') %></p>
+				
 				<%= yield %>
+				
 			</div><!-- end content -->
 				<!-- Column 1 end --> 
             </div> 

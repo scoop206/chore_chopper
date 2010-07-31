@@ -151,3 +151,50 @@ ul#links	{
   font-size: .85em;
   margin: 0;
 }
+
+.home_index_title {
+  margin: 5px 0 5px 0;
+  padding: 0;
+}
+
+.manage_links {
+  font-size: 90%;
+}
+
+table#family_members_table td.name {
+  width: 100px;
+}
+
+td.controls {
+  font-size: 90%;
+}
+
+tr.align-left th {
+ text-align: left;
+}
+
+/* THE BOARD */
+
+#board {
+  margin-top: 1em;
+}
+
+#board td {
+  border: 1px solid black;
+}
+
+#board td.fm_name  {
+  font-weight: bold;
+  border-top: 0;
+  border-left: 0;
+  border-bottom: 0;
+  border-right: 0;
+}
+
+.weekday_buttons {
+ font-size: 50%; 
+}
+
+.selector {
+  width: 5em;
+}

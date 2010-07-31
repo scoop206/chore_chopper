@@ -1,4 +1,4 @@
-<h1>Listing chores</h1>
+<h2>Chores</h2>
 
 <table>
   <tr>
@@ -8,13 +8,14 @@
 <% @chores.each do |chore| %>
   <tr>
     <td><%=h chore.name %></td>
-    <td><%= link_to 'Show', chore %></td>
-    <td><%= link_to 'Edit', edit_chore_path(chore) %></td>
-    <td><%= link_to 'Destroy', chore, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Show', family_chore_path(@current_family, chore) %></td>
+    <td><%= link_to 'Edit', edit_family_chore_path(@current_family, chore) %></td>
+    <td><%= link_to 'Destroy', family_chore_path(@current_family, chore), :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New chore', new_chore_path %>
+<%= link_to 'New chore', new_family_chore_path(@current_family) %><br />
+<%= link_to 'The Board', root_url %>

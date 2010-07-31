@@ -44,10 +44,11 @@ class ChoresController < ApplicationController
   # POST /chores.xml
   def create
     @chore = Chore.new(params[:chore])
+    @chore.family = @current_family
 
     respond_to do |format|
       if @chore.save
-        format.html { redirect_to(@chore, :notice => 'Chore was successfully created.') }
+        format.html { redirect_to(family_chore_url(@current_family, @chore), :notice => 'A Chore was successfully created.') }
         format.xml  { render :xml => @chore, :status => :created, :location => @chore }
       else
         format.html { render :action => "new" }
@@ -63,7 +64,7 @@ class ChoresController < ApplicationController
 
     respond_to do |format|
       if @chore.update_attributes(params[:chore])
-        format.html { redirect_to(@chore, :notice => 'Chore was successfully updated.') }
+        format.html { redirect_to(family_chore_url(@current_family, @chore), :notice => 'A Chore was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -79,7 +80,7 @@ class ChoresController < ApplicationController
     @chore.destroy
 
     respond_to do |format|
-      format.html { redirect_to(chores_url) }
+      format.html { redirect_to(family_chores_url(@current_family)) }
       format.xml  { head :ok }
     end
   end
