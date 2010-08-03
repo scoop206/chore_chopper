@@ -1,0 +1,3 @@
+#!/bin/sh
+
+touch /home/sandfish8/chorechopper.chgworks.com/current/tmp/restart.txt
