@@ -10,7 +10,7 @@ class FamilySessionsController < ApplicationController
     @family_session = FamilySession.new(params[:family_session])
     if @family_session.save
       flash[:notice] = "Login successful!"
-      redirect_back_or_default account_url
+      redirect_back_or_default root_url
     else
       render :action => :new
     end
