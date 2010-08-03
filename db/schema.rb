@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100730214223) do
+ActiveRecord::Schema.define(:version => 20100802121732) do
 
   create_table "chores", :force => true do |t|
     t.string   "name"
@@ -48,9 +48,8 @@ ActiveRecord::Schema.define(:version => 20100730214223) do
   add_index "chores_family_members", ["family_member_id"], :name => "index_chores_family_members_on_family_member_id"
 
   create_table "chores_family_members_days", :id => false, :force => true do |t|
-    t.integer "chore_family_member_id"
+    t.integer "chores_family_member_id"
     t.integer "day_id"
-    t.integer "week"
   end
 
   create_table "days", :force => true do |t|

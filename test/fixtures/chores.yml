@@ -2,6 +2,8 @@
 
 wash_dishes:
   name: Wash Dishes
+  family: hickle
 
 fold_clothes:
   name: Fold Clothes
+  family: hickle

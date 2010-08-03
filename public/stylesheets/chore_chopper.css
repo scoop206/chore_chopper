@@ -140,6 +140,10 @@ ul#links	{
 	visibility: hidden;
 }
 
+.no_display {
+ display: none; 
+}
+
 .clear {
 	clear: both;
 }
@@ -181,6 +185,7 @@ tr.align-left th {
 
 #board td {
   border: 1px solid black;
+  padding: .4em;
 }
 
 #board td.fm_name  {
@@ -192,9 +197,22 @@ tr.align-left th {
 }
 
 .weekday_buttons {
- font-size: 50%; 
+  margin-top: .2em; 
+ font-size: 65%; 
 }
 
-.selector {
+.weekday_buttons label, .weekday_buttons button {
+  font-size:75%; 
+}
+
+.select_all_none {
   width: 5em;
+}
+
+.assigned {
+ font-size: 65%;
+}
+
+.assigned label {
+  font-size: 75%;
 }

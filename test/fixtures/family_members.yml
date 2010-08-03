@@ -2,8 +2,10 @@
 
 bobby:
   name: Bobby
-  family_id: 1
+  family: hickle 
+  active: true
 
 jimmy:
   name: Jimmy
-  family_id: 1
+  family: hickle
+  active: true

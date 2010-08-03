@@ -40,26 +40,41 @@
     <td>
       <% if @admin %>        <%# ADMIN VIEW %>
           
-          Assigned: <%= check_box_tag "chore_assigned[''chore#{ch.id}_fm#{fm.id}']", 1, false, :class => "assigned" %>
+          <%# ASSIGNED?  %>
+          <% cfm = ChoresFamilyMember.get(ch, fm, @week) %>
+          <% is_assigned = !cfm.nil? %>
+          <div class="assigned">
+          &nbsp;Assigned
+          <%= radio_button_tag "chore_assigned[chore#{ch.id}_fm#{fm.id}]", 1, is_assigned, :id => "chore_assigned[chore#{ch.id}_fm#{fm.id}]_yes" %>
+          <label for="<%= "chore_assigned[chore#{ch.id}_fm#{fm.id}]_yes" %>">Yes</label>
+          <%= radio_button_tag "chore_assigned[chore#{ch.id}_fm#{fm.id}]", 0, !is_assigned, :id => "chore_assigned[chore#{ch.id}_fm#{fm.id}]_no" %>
+          <label for="<%= "chore_assigned[chore#{ch.id}_fm#{fm.id}]_no" %>">No</label>
+          </div> 
+         
+         <%# THE DAYS WILL BE HIDDEN OR VISIBLE BASED ON WHETHER THE CHORE IS ASSIGNED %>
+         <% div_class = "weekday_buttons" %>
+         <% div_class += !is_assigned ? " no_display" : "" %>
           
           <%# top row days %>
-          <div class="weekday_buttons">
+          <div class="<%= div_class %>">
+            &nbsp;Days<br />
             <% for index in 0..3 %>
             <% day = @days[index] %>
-            <%= check_box_tag "chore_day_assignment['chore#{ch.id}_fm#{fm.id}_day#{day.day_of_week}']" %>
-            <%= label_tag "chore_day_assignment['chore#{ch.id}_fm#{fm.id}_day#{day.day_of_week}']", day.abbreviation %>
+            <% check_box_status = cfm.nil? ? false : cfm.days.include?(day) %>
+            <%= check_box_tag "chore_day_assignment[chore#{ch.id}_fm#{fm.id}][day#{day.day_of_week}]", 1, check_box_status %>
+            <%= label_tag "chore_day_assignment[chore#{ch.id}_fm#{fm.id}][day#{day.day_of_week}]", day.abbreviation %>
             <% end %>
           </div>
           <%# bottom row days and select all deselect all button %>
-          <div class="weekday_buttons">
+          <div class="<%= div_class %>">
             <% for index in 4..6 %>
             <% day = @days[index] %>
-            <%= check_box_tag "chore_day_assignment['chore#{ch.id}_fm#{fm.id}_day#{day.day_of_week}']" %>
-            <%= label_tag "chore_day_assignment['chore#{ch.id}_fm#{fm.id}_day#{day.day_of_week}']", day.abbreviation %>
+            <% check_box_status = cfm.nil? ? false : cfm.days.include?(day) %>
+            <%= check_box_tag "chore_day_assignment[chore#{ch.id}_fm#{fm.id}][day#{day.day_of_week}]", 1, check_box_status %>
+            <%= label_tag "chore_day_assignment[chore#{ch.id}_fm#{fm.id}][day#{day.day_of_week}]", day.abbreviation %>
             <% end %>
-            <button class="selector">All</button>
+            <button class="select_all_none">All</button>
           </div>
-        <% end %>
       <% else %>        <%#  NON-ADMIN VIEW %>
       
       <% end %>
@@ -80,18 +95,33 @@
 $(document).ready(function() {
   
   <% if @admin %>
-  // setup checkboxes to be jquery radio buttons
+  // setup checkboxes to be day checkboxes
   $('.weekday_buttons').buttonset();
+  
+  // setup checkboxes for Assigned
+  $('.assigned').buttonset();
   
   // setup save and goto normal view link
   $('#save').click(function() {
     
     return false;
   });
+  
+  // click event for the assigned radio buttons, will bring the days into view
+  $('.assigned input').click(function() {
+    var first_days_div = $(this).parent().next()
+    var second_days_div = first_days_div.next()
+    if ($(this).attr('value') == '1') {   // a YES button, show the day select divs
+      first_days_div.removeClass('no_display');
+      second_days_div.removeClass('no_display');
+    } else {  // a NO button, hide the day select divs
+      first_days_div.addClass('no_display');
+      second_days_div.addClass('no_display');
+    }
+  });
 
   // click event for the selector buttons which select or deselect a set of days
-  $('.selector').button().click(function() {
-    
+  $('.select_all_none').button().click(function() {
     var label_node = $(this).children('span');
     // if current label is 'All', select all other checkboxes, else deselect all other checkboxes
     if (label_node.html() == 'All') {
@@ -112,7 +142,7 @@ $(document).ready(function() {
 
 <% if @admin %>
 function update_day_checkboxes(select_button) {
-  select_button.parent().parent().children('div').children('input').attr('checked',check_val).button('refresh');
+  select_button.parent().parent().children('div').children('input[type=checkbox]').attr('checked',check_val).button('refresh');
 }
 <% end %>
 
