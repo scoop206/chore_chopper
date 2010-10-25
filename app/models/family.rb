@@ -22,6 +22,11 @@ class Family < ActiveRecord::Base
      (diff / 7).floor
   end
   
+  def member?(family_member)
+  # is the family_member a member of the family?
+   family_members.include?(family_member)
+  end
+  
   private
   
   def week0_start

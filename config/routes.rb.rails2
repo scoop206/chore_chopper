@@ -1,0 +1,11 @@
+ChoreChopper::Application.routes.draw do
+  resources :families do
+    resources :chores
+    resources :family_members
+  end
+
+  resource :account
+  resource :family_session
+  match '/' => 'home#index'
+  match '/:controller(/:action(/:id))'
+end

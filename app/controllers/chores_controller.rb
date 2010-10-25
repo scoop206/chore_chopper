@@ -5,7 +5,7 @@ class ChoresController < ApplicationController
   # GET /chores
   # GET /chores.xml
   def index
-    @chores = Chore.all
+    @chores = @current_family.chores
 
     respond_to do |format|
       format.html # index.html.erb

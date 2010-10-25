@@ -37,7 +37,7 @@
 				<% if @current_family %>
 				<div id="user_info">
 				  <p>Welcome: <%=h @current_family.name %><br />
-				  <%= link_to "Logout", {:controller=> :family_sessions, :action => :destroy }, :method => :delete %></p>
+				  <%= link_to "Logout", '/family_sessions/destroy' , :method => :delete %></p>
 				</div>
 				<% end %>
 				

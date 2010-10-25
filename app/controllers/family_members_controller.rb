@@ -5,7 +5,7 @@ class FamilyMembersController < ApplicationController
   # GET /family_members
   # GET /family_members.xml
   def index
-    @family_members = FamilyMember.all
+    @family_members = @current_family.family_members
 
     respond_to do |format|
       format.html # index.html.erb
@@ -17,6 +17,11 @@ class FamilyMembersController < ApplicationController
   # GET /family_members/1.xml
   def show
     @family_member = FamilyMember.find(params[:id])
+    
+    unless @current_family.member?(@family_member)
+      flash[:warning] = "Requested family member is not a member of your family"
+      redirect_to show_family_members
+    end
 
     respond_to do |format|
       format.html # show.html.erb
@@ -84,4 +89,5 @@ class FamilyMembersController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
 end
