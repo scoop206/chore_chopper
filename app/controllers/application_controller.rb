@@ -5,7 +5,6 @@ class ApplicationController < ActionController::Base
   helper :all # include all helpers, all the time
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
 
-  filter_parameter_logging :password, :password_confirmation
   helper_method :current_family_session, :current_family
 
   private
@@ -24,7 +23,7 @@ class ApplicationController < ActionController::Base
     unless current_family
       store_location
       flash[:notice] = "You must be logged in to access this page"
-      redirect_to new_family_session_url
+      redirect_to new_family_session_path
       return false
     end
   end
@@ -33,13 +32,13 @@ class ApplicationController < ActionController::Base
     if current_family
       store_location
       flash[:notice] = "You must be logged out to access this page"
-      redirect_to account_url
+      redirect_to family_url(current_family)
       return false
     end
   end
   
   def store_location
-    session[:return_to] = request.request_uri unless request.request_uri.include?('family_session')
+    session[:return_to] = request.fullpath unless request.fullpath.include?('family_session')
   end
   
   def redirect_back_or_default(default)

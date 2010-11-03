@@ -4,7 +4,7 @@ ChoreChopper::Application.routes.draw do
     resources :family_members
   end
 
-  resource :account
+  match 'account' => 'family'
   resource :family_session
   match '/' => 'home#index'
   match '/:controller(/:action(/:id))'

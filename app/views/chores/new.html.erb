@@ -1,6 +1,6 @@
 <h2>New Chore</h2>
 
-<% form_for(@chore, :url => family_chores_url(@current_family)) do |f| %>
+<%= form_for(@chore, :url => family_chores_url(@current_family)) do |f| %>
   <%= f.error_messages %>
   <p>
     <%= f.label :name %><br />

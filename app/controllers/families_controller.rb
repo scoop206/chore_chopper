@@ -17,11 +17,12 @@ class FamiliesController < ApplicationController
   # POST /families
   # POST /families.xml
   def create
+    debugger
     @family = Family.new(params[:family])
 
       if @family.save
-        flash[:notice] = "Account registered!"
-        redirect_back_or_default account_url
+        flash[:notice] = "Account registered, Please Login"
+        redirect_back_or_default root_url
       else
         render :action => :new
       end

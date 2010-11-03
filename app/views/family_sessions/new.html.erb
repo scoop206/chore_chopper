@@ -1,6 +1,6 @@
 <h1>Login</h1>
 
-<% form_for @family_session, :url => family_session_path do |f| %>
+<%= form_for @family_session, :url => family_session_path do |f| %>
   <%= f.error_messages %>
   <%= f.label :login, "Login (Family username)" %><br />
   <%= f.text_field :login %><br />

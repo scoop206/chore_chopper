@@ -1,0 +1,94 @@
+# Logfile created on Wed Nov 03 00:38:25 -0600 2010 by logger.rb/22285
+REQUESTING PAGE: GET /families/new with {} and HTTP headers {}
+REQUESTING PAGE: GET /families/new with {} and HTTP headers {}
+REQUESTING PAGE: GET /families/new with {} and HTTP headers {}
+REQUESTING PAGE: GET /families/new with {} and HTTP headers {}
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+REQUESTING PAGE: GET http://example.org/families/new with {} and HTTP headers {"HTTP_REFERER"=>"/"}
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+REQUESTING PAGE: GET http://example.org/families/new with {} and HTTP headers {"HTTP_REFERER"=>"/"}
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+REQUESTING PAGE: GET http://example.org/families/new with {} and HTTP headers {"HTTP_REFERER"=>"/"}
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+REQUESTING PAGE: GET http://example.org/families/new with {} and HTTP headers {"HTTP_REFERER"=>"/"}
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+REQUESTING PAGE: GET http://example.org/families/new with {} and HTTP headers {"HTTP_REFERER"=>"/"}
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+REQUESTING PAGE: GET http://example.org/families/new with {} and HTTP headers {"HTTP_REFERER"=>"/"}
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+REQUESTING PAGE: GET http://example.org/families/new with {} and HTTP headers {"HTTP_REFERER"=>"/"}
+REQUESTING PAGE: GET /families/new with {} and HTTP headers {}
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+REQUESTING PAGE: GET http://example.org/families/new with {} and HTTP headers {"HTTP_REFERER"=>"/"}
+REQUESTING PAGE: GET /families/new with {} and HTTP headers {}
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+REQUESTING PAGE: GET http://example.org/families/new with {} and HTTP headers {"HTTP_REFERER"=>"/"}
+REQUESTING PAGE: GET /families/new with {} and HTTP headers {}
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+REQUESTING PAGE: GET http://example.org/families/new with {} and HTTP headers {"HTTP_REFERER"=>"/"}
+REQUESTING PAGE: GET /families/new with {} and HTTP headers {}
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+REQUESTING PAGE: GET http://example.org/families/new with {} and HTTP headers {"HTTP_REFERER"=>"/"}
+REQUESTING PAGE: GET /families/new with {} and HTTP headers {}
+REQUESTING PAGE: POST /account with {"commit"=>"Register", "utf8"=>"✓", "family"=>{"name"=>"Johson", "email_confirmation"=>"foo@bar.com", "password_confirmation"=>"foobar", "password"=>"foobar", "login"=>"johnson", "email"=>"foo@bar.com"}} and HTTP headers {"HTTP_REFERER"=>"/families/new"}
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+REQUESTING PAGE: GET http://example.org/families/new with {} and HTTP headers {"HTTP_REFERER"=>"/"}
+REQUESTING PAGE: GET /families/new with {} and HTTP headers {}
+REQUESTING PAGE: POST /account with {"commit"=>"Register", "utf8"=>"✓", "family"=>{"name"=>"Johson", "email_confirmation"=>"foo@bar.com", "password_confirmation"=>"foobar", "password"=>"foobar", "login"=>"johnson", "email"=>"foo@bar.com"}} and HTTP headers {"HTTP_REFERER"=>"/families/new"}
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+REQUESTING PAGE: GET http://example.org/families/new with {} and HTTP headers {"HTTP_REFERER"=>"/"}
+REQUESTING PAGE: GET /families/new with {} and HTTP headers {}
+REQUESTING PAGE: POST /account with {"commit"=>"Register", "utf8"=>"✓", "family"=>{"name"=>"Johson", "email_confirmation"=>"foo@bar.com", "password_confirmation"=>"foobar", "password"=>"foobar", "login"=>"johnson", "email"=>"foo@bar.com"}} and HTTP headers {"HTTP_REFERER"=>"/families/new"}
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+REQUESTING PAGE: GET http://example.org/families/new with {} and HTTP headers {"HTTP_REFERER"=>"/"}
+REQUESTING PAGE: GET /families/new with {} and HTTP headers {}
+REQUESTING PAGE: POST /account with {"commit"=>"Register", "utf8"=>"✓", "family"=>{"name"=>"Johson", "email_confirmation"=>"foo@bar.com", "password_confirmation"=>"foobar", "password"=>"foobar", "login"=>"johnson", "email"=>"foo@bar.com"}} and HTTP headers {"HTTP_REFERER"=>"/families/new"}
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+REQUESTING PAGE: GET http://example.org/families/new with {} and HTTP headers {"HTTP_REFERER"=>"/"}
+REQUESTING PAGE: GET /families/new with {} and HTTP headers {}
+REQUESTING PAGE: POST /account with {"commit"=>"Register", "utf8"=>"✓", "family"=>{"name"=>"Johson", "email_confirmation"=>"foo@bar.com", "password_confirmation"=>"foobar", "password"=>"foobar", "login"=>"johnson", "email"=>"foo@bar.com"}} and HTTP headers {"HTTP_REFERER"=>"/families/new"}
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+REQUESTING PAGE: GET http://example.org/families/new with {} and HTTP headers {"HTTP_REFERER"=>"/"}
+REQUESTING PAGE: GET /families/new with {} and HTTP headers {}
+REQUESTING PAGE: POST /account with {"commit"=>"Register", "utf8"=>"✓", "family"=>{"name"=>"Johson", "email_confirmation"=>"foo@bar.com", "password_confirmation"=>"foobar", "password"=>"foobar", "login"=>"johnson", "email"=>"foo@bar.com"}} and HTTP headers {"HTTP_REFERER"=>"/families/new"}
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+REQUESTING PAGE: GET http://example.org/families/new with {} and HTTP headers {"HTTP_REFERER"=>"/"}
+REQUESTING PAGE: GET /families/new with {} and HTTP headers {}
+REQUESTING PAGE: POST /account with {"commit"=>"Register", "utf8"=>"✓", "family"=>{"name"=>"Johson", "email_confirmation"=>"foo@bar.com", "password_confirmation"=>"foobar", "password"=>"foobar", "login"=>"johnson", "email"=>"foo@bar.com"}} and HTTP headers {"HTTP_REFERER"=>"/families/new"}
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+REQUESTING PAGE: GET http://example.org/families/new with {} and HTTP headers {"HTTP_REFERER"=>"/"}
+REQUESTING PAGE: GET /families/new with {} and HTTP headers {}
+REQUESTING PAGE: POST /account with {"commit"=>"Register", "utf8"=>"✓", "family"=>{"name"=>"Johson", "email_confirmation"=>"foo@bar.com", "password_confirmation"=>"foobar", "password"=>"foobar", "login"=>"johnson", "email"=>"foo@bar.com"}} and HTTP headers {"HTTP_REFERER"=>"/families/new"}
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+REQUESTING PAGE: GET http://example.org/families/new with {} and HTTP headers {"HTTP_REFERER"=>"/"}
+REQUESTING PAGE: GET /families/new with {} and HTTP headers {}
+REQUESTING PAGE: POST /account with {"commit"=>"Register", "utf8"=>"✓", "family"=>{"name"=>"Johson", "email_confirmation"=>"foo@bar.com", "password_confirmation"=>"foobar", "password"=>"foobar", "login"=>"johnson", "email"=>"foo@bar.com"}} and HTTP headers {"HTTP_REFERER"=>"/families/new"}
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+REQUESTING PAGE: GET http://example.org/families/new with {} and HTTP headers {"HTTP_REFERER"=>"/"}
+REQUESTING PAGE: GET /families/new with {} and HTTP headers {}
+REQUESTING PAGE: POST /account with {"commit"=>"Register", "utf8"=>"✓", "family"=>{"name"=>"Johson", "email_confirmation"=>"foo@bar.com", "password_confirmation"=>"foobar", "password"=>"foobar", "login"=>"johnson", "email"=>"foo@bar.com"}} and HTTP headers {"HTTP_REFERER"=>"/families/new"}
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+REQUESTING PAGE: GET http://example.org/families/new with {} and HTTP headers {"HTTP_REFERER"=>"/"}
+REQUESTING PAGE: GET /families/new with {} and HTTP headers {}
+REQUESTING PAGE: POST /account with {"commit"=>"Register", "utf8"=>"✓", "family"=>{"name"=>"Johson", "email_confirmation"=>"foo@bar.com", "password_confirmation"=>"foobar", "password"=>"foobar", "login"=>"johnson", "email"=>"foo@bar.com"}} and HTTP headers {"HTTP_REFERER"=>"/families/new"}
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+REQUESTING PAGE: GET http://example.org/families/new with {} and HTTP headers {"HTTP_REFERER"=>"/"}
+REQUESTING PAGE: GET /families/new with {} and HTTP headers {}
+REQUESTING PAGE: POST /account with {"commit"=>"Register", "utf8"=>"✓", "family"=>{"name"=>"Johson", "email_confirmation"=>"foo@bar.com", "password_confirmation"=>"foobar", "password"=>"foobar", "login"=>"johnson", "email"=>"foo@bar.com"}} and HTTP headers {"HTTP_REFERER"=>"/families/new"}
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+REQUESTING PAGE: GET http://example.org/families/new with {} and HTTP headers {"HTTP_REFERER"=>"/"}
+REQUESTING PAGE: GET /families/new with {} and HTTP headers {}
+REQUESTING PAGE: POST /account with {"commit"=>"Register", "utf8"=>"✓", "family"=>{"name"=>"Johson", "email_confirmation"=>"foo@bar.com", "password_confirmation"=>"foobar", "password"=>"foobar", "login"=>"johnson", "email"=>"foo@bar.com"}} and HTTP headers {"HTTP_REFERER"=>"/families/new"}
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+REQUESTING PAGE: GET /families/new with {} and HTTP headers {}
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+REQUESTING PAGE: GET http://example.org/families/new with {} and HTTP headers {"HTTP_REFERER"=>"/"}
+REQUESTING PAGE: GET /families/new with {} and HTTP headers {}
+REQUESTING PAGE: POST /account with {"commit"=>"Register", "utf8"=>"✓", "family"=>{"name"=>"Johson", "email_confirmation"=>"foo@bar.com", "password_confirmation"=>"foobar", "password"=>"foobar", "login"=>"johnson", "email"=>"foo@bar.com"}} and HTTP headers {"HTTP_REFERER"=>"/families/new"}

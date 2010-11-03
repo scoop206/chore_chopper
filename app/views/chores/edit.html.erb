@@ -1,6 +1,6 @@
 <h2>Editing Chore</h2>
 
-<% form_for(@chore, :url => edit_family_chore_url(@current_family, @chore)) do |f| %>
+<%= form_for(@chore, :url => edit_family_chore_url(@current_family, @chore)) do |f| %>
   <%= f.error_messages %>
 
   <p>
